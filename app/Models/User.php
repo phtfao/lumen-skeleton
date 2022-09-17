@@ -19,7 +19,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var string[]
      */
     protected $fillable = [
-        'name', 'email',
+        'name', 
+        'email', 
+        'cpf_cnpj', 
+        'password', 
+        'category',
+        'balance'
     ];
 
     /**
@@ -30,4 +35,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    public function transactionsSent()
+    {
+        return $this->hasMany(Transaction::class, 'payer_id');
+    }
+    
+    public function transactionsReceived()
+    {
+        return $this->hasMany(Transaction::class, 'payee_id');
+    }
 }

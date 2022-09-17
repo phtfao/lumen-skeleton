@@ -5,10 +5,18 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="Application Test Suite">
-            <directory suffix="Test.php">./tests</directory>
+        <testsuite name="Integration">
+            <directory suffix="Test.php">./tests/Integration</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
     </testsuites>
+    <coverage>
+        <include>
+            <directory suffix=".php">vendor/phtfao/panako/src</directory>
+        </include>
+    </coverage>
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="CACHE_DRIVER" value="array"/>

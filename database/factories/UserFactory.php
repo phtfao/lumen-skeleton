@@ -21,9 +21,16 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $category = $this->faker->randomElement(['C', 'L']);
+        $cpf_cnpj = $category === 'C' ? $this->faker->unique()->numerify('###########') : $this->faker->unique()->numerify('##############');
+
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
+            'cpf_cnpj' => $cpf_cnpj,
+            'category' => $category,
+            'password' => '$2y$10$OqO1FtYKpX9BzE9xg2rQOuK0C2QlQoQ0w0jZlY1ZaX9Fk0JzCtX0a', // password
+            'balance' => $this->faker->randomFloat(2, 0, 10000),
         ];
     }
 }
