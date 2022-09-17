@@ -7,7 +7,7 @@ return [
         | Edit to set the api's title
         |--------------------------------------------------------------------------
          */
-        'title' => 'Panako Systems',
+        'title' => 'Swagger Lume API',
     ],
 
     'routes' => [
@@ -199,6 +199,6 @@ return [
     |--------------------------------------------------------------------------
      */
     'constants' => [
-        'SWAGGER_LUME_CONST_HOST' => 'http://localhost'),
+        'SWAGGER_LUME_CONST_HOST' => env('SWAGGER_LUME_CONST_HOST', 'http://my-default-host.com'),
     ],
 ];

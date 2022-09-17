@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Panako API",
+        "contact": {
+            "name": "Support Team",
+            "email": "phtfao@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/transfer": {
+            "post": {
+                "tags": [
+                    "transaction"
+                ],
+                "summary": "Transferência de valores",
+                "description": "Envia valores de uma conta a outra",
+                "operationId": "transfer",
+                "requestBody": {
+                    "description": "Parâmetros necessários para realizar uma transferência",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "payer_id",
+                                    "payee_id",
+                                    "value"
+                                ],
+                                "properties": {
+                                    "payer_id": {
+                                        "description": "Identificado do usuário que está fazendo a transferência.",
+                                        "type": "integer",
+                                        "format": "999",
+                                        "example": "123"
+                                    },
+                                    "payee_id": {
+                                        "description": "Identificado do usuário que está recebendo a transferência.",
+                                        "type": "integer",
+                                        "format": "999",
+                                        "example": "456"
+                                    },
+                                    "value": {
+                                        "description": "Valor a ser transferido.",
+                                        "type": "number",
+                                        "format": "999.99",
+                                        "example": "123.45"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    }
+}
