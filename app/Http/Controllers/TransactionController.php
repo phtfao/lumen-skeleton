@@ -77,7 +77,7 @@ class TransactionController extends Controller
             $arrResponse = response()->json([
                 'status' => 'error',
                 'message' => 'Erro ao realizar transferência.'
-                . $e->getMessage()
+                //. $e->getMessage()
             ], HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
 
